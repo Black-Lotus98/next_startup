@@ -6,9 +6,9 @@
       "title": "Dashboard",
       "description": "View analytics and manage your data"
     },
-    "home": {
-      "title": "Home",
-      "description": "Visit the home section"
+    "spaceInvaders": {
+      "title": "Space Invaders",
+      "description": "View the Space Invaders game that based on the classic game Santa Parevia"
     }
   },
   "view": "View",

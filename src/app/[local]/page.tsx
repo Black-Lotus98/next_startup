@@ -5,6 +5,7 @@ import { localePathname } from '@/lib/utils';
 import Link from 'next/link';
 import { ArrowRightIcon } from 'lucide-react';
 import { ThemeSwitcher } from '@/components/theme-switcher';
+import { StyleEnum } from '@/enums/themeButton.enum';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ local: locale }));
@@ -30,17 +31,16 @@ export default async function Home({
       description: tHome('projects.dashboard.description'),
     },
     {
-      id: 'home',
-      path: '/home',
-      title: tHome('projects.home.title'),
-      description: tHome('projects.home.description'),
+      id: 'space-invaders',
+      path: '/space-invaders',
+      title: tHome('projects.spaceInvaders.title'),
+      description: tHome('projects.spaceInvaders.description'),
     },
   ];
 
   return (
     <div className="min-h-screen w-full relative">
-      <ThemeSwitcher style="overlay" />
-
+      <ThemeSwitcher style={StyleEnum.OVERLAY_BUTTON} />
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">

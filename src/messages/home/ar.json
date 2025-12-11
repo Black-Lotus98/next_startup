@@ -6,9 +6,9 @@
       "title": "لوحة التحكم",
       "description": "عرض التحليلات وإدارة بياناتك"
     },
-    "home": {
-      "title": "الرئيسية",
-      "description": "زيارة قسم الرئيسية"
+    "spaceInvaders": {
+      "title": "Space Invaders",
+      "description": "عرض لعبة Space Invaders التي تعتمد على اللعبة الكلاسيكية Santa Parevia"
     }
   },
   "view": "عرض",

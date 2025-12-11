@@ -30,7 +30,8 @@ export function ThemeSwitcher({ style }: ThemeSwitcherProps) {
         <Button
             variant="ghost"
             size="icon-lg"
-            className={cn(style === StyleEnum.OVERLAY_BUTTON ? 'fixed top-4 right-4 z-50 shadow-lg hover:shadow-xl' : 'hidden',
+            shadow="lg"
+            className={cn(style === StyleEnum.OVERLAY_BUTTON ? 'fixed top-4 right-4 z-50 hover:shadow-xl' : 'hidden',
                 'h-9 w-9',
                 'rounded-full')}
             onClick={handleToggle}
