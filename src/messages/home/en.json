@@ -1,5 +1,17 @@
 {
   "title": "Welcome",
+  "subtitle": "Navigate to different sections",
+  "projects": {
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "View analytics and manage your data"
+    },
+    "home": {
+      "title": "Home",
+      "description": "Visit the home section"
+    }
+  },
+  "view": "View",
   "button": "Click me"
 }
 

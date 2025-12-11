@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   /* Custom Screen Sizes (Breakpoints) */
@@ -123,54 +123,54 @@
   --radius: 0.625rem;
   
   /* Light Mode Colors */
-  --background: var(--color-light-a0);
-  --foreground: var(--color-dark-a0);
-  --card: var(--color-light-a0);
-  --card-foreground: var(--color-dark-a0);
-  --popover: var(--color-light-a0);
-  --popover-foreground: var(--color-dark-a0);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
   
   /* Primary Colors */
-  --primary: var(--color-primary-a0);
-  --primary-foreground: var(--color-light-a0);
+  --primary: #3c50e0;
+  --primary-foreground: #ffffff;
   
-  /* Secondary Colors */
-  --secondary: var(--color-surface-a70);
-  --secondary-foreground: var(--color-dark-a0);
+  /* Secondary Colors - Light gray background with dark text */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
   
-  /* Muted Colors */
-  --muted: var(--color-surface-a60);
-  --muted-foreground: var(--color-surface-a30);
+  /* Muted Colors - Subtle background and readable text */
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
   
   /* Accent Colors */
-  --accent: var(--color-primary-a80);
-  --accent-foreground: var(--color-primary-a0);
+  --accent: #edeafc;
+  --accent-foreground: #3c50e0;
   
   /* Destructive/Danger Colors */
-  --destructive: var(--color-danger-a0);
-  --destructive-foreground: var(--color-light-a0);
+  --destructive: #9c2121;
+  --destructive-foreground: #ffffff;
   
-  /* Border & Input */
-  --border: var(--color-surface-a60);
-  --input: var(--color-surface-a60);
-  --ring: var(--color-primary-a0);
+  /* Border & Input - Visible but subtle */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3c50e0;
   
   /* Chart Colors */
-  --chart-1: var(--color-primary-a0);
-  --chart-2: var(--color-info-a0);
-  --chart-3: var(--color-success-a0);
-  --chart-4: var(--color-warning-a0);
-  --chart-5: var(--color-danger-a0);
+  --chart-1: #3c50e0;
+  --chart-2: #21498a;
+  --chart-3: #22946e;
+  --chart-4: #ffa70b;
+  --chart-5: #9c2121;
   
   /* Sidebar Colors */
-  --sidebar: var(--color-light-a0);
-  --sidebar-foreground: var(--color-dark-a0);
-  --sidebar-primary: var(--color-primary-a0);
-  --sidebar-primary-foreground: var(--color-light-a0);
-  --sidebar-accent: var(--color-primary-a80);
-  --sidebar-accent-foreground: var(--color-primary-a0);
-  --sidebar-border: var(--color-surface-a60);
-  --sidebar-ring: var(--color-primary-a0);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #3c50e0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #edeafc;
+  --sidebar-accent-foreground: #3c50e0;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #3c50e0;
 }
 
 .dark {
@@ -231,5 +231,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
   }
 }

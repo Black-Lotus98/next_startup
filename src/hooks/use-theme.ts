@@ -7,9 +7,9 @@ type Theme = 'light' | 'dark' | 'system';
 export function useTheme() {
   // Initialize theme from localStorage if available (client-side only)
   const getInitialTheme = (): Theme => {
-    if (typeof window === 'undefined') return 'system';
+    if (typeof window === 'undefined') return 'light';
     const savedTheme = localStorage.getItem('theme') as Theme | null;
-    return savedTheme || 'system';
+    return savedTheme || 'light';
   };
 
   const [theme, setTheme] = useState<Theme>(getInitialTheme);

@@ -20,6 +20,7 @@ import { LocaleEnum } from '@/enums/locale.enum';
 import { SidebarSide } from '@/enums/sidebar-side.enum';
 import { localizedPathClient } from '@/lib/utils-client';
 import { ThemeSwitcher } from '@/components/theme-switcher';
+import { StyleEnum } from '@/enums/themeButton.enum';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react';
@@ -70,7 +71,7 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
                 <header className={`flex h-16 shrink-0 items-center gap-2 border-b px-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
                     <SidebarTrigger className={isRtl ? '-mr-1' : '-ml-1'} />
                     <div className={`flex flex-1 ${isRtl ? 'justify-start' : 'justify-end'}`}>
-                        <ThemeSwitcher />
+                        <ThemeSwitcher style={StyleEnum.NORMAL_BUTTON} />
                     </div>
                 </header>
                 <main className="flex flex-1 flex-col gap-4 p-4">
