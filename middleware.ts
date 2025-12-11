@@ -15,15 +15,42 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
+  // Let next-intl middleware handle the redirect first
   const response = intlMiddleware(request);
   
-  // Extract locale from URL path
-  const pathname = request.nextUrl.pathname;
-  const segments = pathname.split('/').filter(Boolean);
-  const locale = segments[0] || defaultLocale;
+  // Extract locale from the final URL (after redirect if applicable)
+  let locale: string | null = null;
   
-  // Set locale cookie if it's a valid locale
-  if (locales.includes(locale as typeof locales[number])) {
+  // Check if this is a redirect response
+  const isRedirect = response.status === 307 || response.status === 308;
+  
+  if (isRedirect) {
+    // Extract locale from redirect location
+    const location = response.headers.get('location');
+    if (location) {
+      try {
+        const redirectUrl = new URL(location, request.url);
+        const segments = redirectUrl.pathname.split('/').filter(Boolean);
+        const potentialLocale = segments[0];
+        if (potentialLocale && locales.includes(potentialLocale as typeof locales[number])) {
+          locale = potentialLocale;
+        }
+      } catch {
+        // Invalid URL, skip
+      }
+    }
+  } else {
+    // Extract locale from current pathname
+    const pathname = request.nextUrl.pathname;
+    const segments = pathname.split('/').filter(Boolean);
+    const potentialLocale = segments[0];
+    if (potentialLocale && locales.includes(potentialLocale as typeof locales[number])) {
+      locale = potentialLocale;
+    }
+  }
+  
+  // Set locale cookie if we found a valid locale
+  if (locale) {
     response.cookies.set(LOCALE_COOKIE_NAME, locale, {
       path: '/',
       maxAge: 60 * 60 * 24 * 365, // 1 year
@@ -40,6 +67,10 @@ export const config = {
   // - API routes
   // - _next (Next.js internals)
   // - files with extensions (e.g. .ico, .png)
-  matcher: ['/((?!api|_next|.*\\..*).*)']
+  // Note: The pattern explicitly includes '/' to match root path
+  matcher: [
+    '/',
+    '/((?!api|_next|.*\\..*).*)'
+  ]
 };
 
