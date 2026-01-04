@@ -134,8 +134,6 @@ export function middleware(request: NextRequest): NextResponse {
   
   // Set header for next-intl to read the locale
   response.headers.set('x-next-intl-locale', localeFromPath);
-  // Set pathname header for layouts to read
-  response.headers.set('x-pathname', pathname);
   
   return response;
 }

@@ -51,9 +51,11 @@ const MainMenu = () => {
       </div>
 
       <div className="row-span-4 col-span-12 flex justify-center items-center" style={{ borderStyle: 'ridge' }}>
-        <Button className="bg-[#b6f486] hover:bg-[#b6f486]/90 text-[#400e63] px-4 py-2 h-full  border-8 border-[#b6f486]" style={{ borderStyle: 'ridge' }} >
-          Continue
-        </Button>
+        <Link href="/space-invaders/demand">
+          <Button className="bg-[#b6f486] hover:bg-[#b6f486]/90 text-[#400e63] px-4 py-2 h-full  border-8 border-[#b6f486]" style={{ borderStyle: 'ridge' }} >
+            Continue
+          </Button>
+        </Link>
       </div>
     </SpaceInvadersLayout >
   )

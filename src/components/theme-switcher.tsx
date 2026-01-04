@@ -4,11 +4,15 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { StyleEnum } from '@/enums/themeButton.enum';
+
+export enum StyleEnum {
+    NORMAL_BUTTON = 'normal',
+    OVERLAY_BUTTON = 'overlay',
+}
 
 
 interface ThemeSwitcherProps {
-    style?: StyleEnum | 'normal' | 'overlay';
+    style?: StyleEnum;
 }
 
 export function ThemeSwitcher({ style }: ThemeSwitcherProps) {
@@ -26,12 +30,12 @@ export function ThemeSwitcher({ style }: ThemeSwitcherProps) {
         setTheme(isDark ? 'light' : 'dark');
     };
 
+    console.log('style', style);
     const buttonContent = (
         <Button
             variant="ghost"
             size="icon-lg"
-            shadow="lg"
-            className={cn(style === StyleEnum.OVERLAY_BUTTON ? 'fixed top-4 right-4 z-50 hover:shadow-xl' : 'hidden',
+            className={cn(style === StyleEnum.OVERLAY_BUTTON ? 'fixed top-4 right-4 z-50 shadow-lg hover:shadow-xl' : 'hidden',
                 'h-9 w-9',
                 'rounded-full')}
             onClick={handleToggle}

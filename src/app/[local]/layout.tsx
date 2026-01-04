@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -16,18 +15,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const alienRobot = localFont({
-  src: "../../styles/fonts/Alien Robot.ttf",
-  variable: "--font-alien-robot",
-  display: "swap",
-});
-
-const bigPixel = localFont({
-  src: "../../styles/fonts/Big Pixel demo.otf",
-  variable: "--font-big-pixel",
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -62,7 +49,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={isRtlLocale(locale) ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${alienRobot.variable} ${bigPixel.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>

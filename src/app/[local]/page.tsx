@@ -4,8 +4,7 @@ import { locales, type Locale } from '@/config/i18n';
 import { localePathname } from '@/lib/utils';
 import Link from 'next/link';
 import { ArrowRightIcon } from 'lucide-react';
-import { ThemeSwitcher } from '@/components/theme-switcher';
-import { StyleEnum } from '@/enums/themeButton.enum';
+import { StyleEnum, ThemeSwitcher } from '@/components/theme-switcher';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ local: locale }));
@@ -31,7 +30,7 @@ export default async function Home({
       description: tHome('projects.dashboard.description'),
     },
     {
-      id: 'space-invaders',
+      id: 'spaceInvaders',
       path: '/space-invaders',
       title: tHome('projects.spaceInvaders.title'),
       description: tHome('projects.spaceInvaders.description'),
@@ -41,6 +40,7 @@ export default async function Home({
   return (
     <div className="min-h-screen w-full relative">
       <ThemeSwitcher style={StyleEnum.OVERLAY_BUTTON} />
+
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
