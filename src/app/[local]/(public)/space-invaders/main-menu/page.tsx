@@ -1,8 +1,11 @@
+'use client';
+
 import SpaceInvadersLayout from '@/components/layouts/SpaceInvadersLayout'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-
-
+import { useGameState } from '@/hooks/use-game-state'
+import { formatNumber } from '@/lib/space-invaders/game-utils'
+import { useLocalizedPathname } from '@/hooks/use-localized-pathname'
 
 const StatusColumn = ({ title, number, unit }: { title: string, number: number | string, unit: string }) => {
   return (
@@ -24,20 +27,27 @@ const MarketButton = ({ href, title }: { href: string, title: string }) => {
 }
 
 const MainMenu = () => {
+  const { gameState } = useGameState()
+  const getLocalizedPath = useLocalizedPathname()
+
+  // Calculate percentage of food saved
+  const foodSavedPercentage = gameState.meat > 0
+    ? ((gameState.meat - gameState.meat_demand) / gameState.meat * 100).toFixed(0)
+    : '0'
+
   return (
-    <SpaceInvadersLayout href="/space-invaders" className="font-big-pixel">
+    <SpaceInvadersLayout href={getLocalizedPath('/space-invaders')} className="font-big-pixel">
       <div className="col-span-12 row-span-4 flex flex-col gap-4 justify-center items-center text-center">
         <h3>Big Alien Mafia Gangster Boss</h3>
-        <h4>Human saved by rebel humans {123}% of your food!</h4>
-        <h4>You are in year {2025} </h4>
+        <h4>Human saved by rebel humans {foodSavedPercentage}% of your food!</h4>
+        <h4>You are in year {gameState.year} </h4>
       </div>
 
       <div className="row-span-4 col-span-12 flex justify-center items-center" style={{ borderStyle: 'ridge' }}>
-        {/* todo: numbers must be defined */}
-        <StatusColumn title="Meat Demand" number={456} unit="Container" />
-        <StatusColumn title="Meat Price" number={789} unit="per 1000" />
-        <StatusColumn title="Stock Price" number={101} unit="Stock" />
-        <StatusColumn title="Treasury Xeno" number={123} unit="xeno matter" />
+        <StatusColumn title="Meat Demand" number={formatNumber(gameState.meat_demand)} unit="Container" />
+        <StatusColumn title="Meat Price" number={formatNumber(gameState.meat_price, 2)} unit="per 1000" />
+        <StatusColumn title="Stock Price" number={formatNumber(gameState.stock_price, 2)} unit="Stock" />
+        <StatusColumn title="Treasury Xeno" number={formatNumber(gameState.xeno_matter)} unit="xeno matter" />
       </div>
 
       <div className="row-span-1 col-span-12 flex flex-col gap-4 justify-center items-center">
@@ -46,12 +56,12 @@ const MainMenu = () => {
 
       <div className="row-span-4 col-span-12  flex flex-col md:flex-row justify-center items-center border-8 border-[#b6f486] gap-4 p-4" style={{ borderStyle: 'ridge' }}>
 
-        <MarketButton href="/space-invaders/meat-market" title="Meat Market" />
-        <MarketButton href="/space-invaders/meat-market" title="Stock Market" />
+        <MarketButton href={getLocalizedPath('/space-invaders/meat-market')} title="Meat Market" />
+        <MarketButton href={getLocalizedPath('/space-invaders/stock-market')} title="Stock Market" />
       </div>
 
       <div className="row-span-4 col-span-12 flex justify-center items-center" style={{ borderStyle: 'ridge' }}>
-        <Link href="/space-invaders/demand">
+        <Link href={getLocalizedPath('/space-invaders/demand')}>
           <Button className="bg-[#b6f486] hover:bg-[#b6f486]/90 text-[#400e63] px-4 py-2 h-full  border-8 border-[#b6f486]" style={{ borderStyle: 'ridge' }} >
             Continue
           </Button>

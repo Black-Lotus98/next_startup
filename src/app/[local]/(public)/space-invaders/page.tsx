@@ -1,8 +1,23 @@
+'use client';
+
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import SpaceInvadersLayout from '@/components/layouts/SpaceInvadersLayout'
+import { useGameContext } from '@/contexts/game-context'
+import { useRouter } from 'next/navigation'
+import { useLocalizedPathname } from '@/hooks/use-localized-pathname'
 
 const HomePage = () => {
+    const { resetGame } = useGameContext()
+    const router = useRouter()
+    const getLocalizedPath = useLocalizedPathname()
+
+    const handleStart = () => {
+        // Reset game to generate fresh data
+        resetGame()
+        // Navigate to main menu with locale prefix
+        router.push(getLocalizedPath('/space-invaders/main-menu'))
+    }
+
     return (
         <SpaceInvadersLayout>
             <div className=' flex col-span-12 row-span-8 justify-center items-center border-6 border-[#b6f486] ' style={{ borderStyle: 'ridge' }}>
@@ -17,9 +32,13 @@ const HomePage = () => {
                     Developed Using: React JS
                 </div>
                 <div className='w-full flex justify-center items-center grow'>
-                    <Link href="/space-invaders/main-menu">
-                        <Button variant="inherit" className=' bg-[#b6f486] text-[#400e63]' >Start</Button>
-                    </Link>
+                    <Button
+                        variant="inherit"
+                        className=' bg-[#b6f486] text-[#400e63]'
+                        onClick={handleStart}
+                    >
+                        Start
+                    </Button>
                 </div>
             </div>
         </SpaceInvadersLayout>

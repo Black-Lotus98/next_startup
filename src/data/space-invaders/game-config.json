@@ -1,0 +1,37 @@
+{
+  "basePrices": {
+    "meat": 20,
+    "stock": 10
+  },
+  "ranges": {
+    "sympathizers": { "min": 1, "max": 25 },
+    "rebelHumans": { "min": 1, "max": 25 },
+    "meat": { "min": 15, "max": 20 },
+    "meatDemandPercentage": { "min": 30, "max": 70 }
+  },
+  "constants": {
+    "alienMeatDemand": 2,
+    "initialXenoMatter": 2000,
+    "initialScientists": 25,
+    "initialYear": 1400,
+    "maxStock": 1000
+  },
+  "taxes": {
+    "income": 5,
+    "country": 25,
+    "sales": 10
+  },
+  "rates": {
+    "death": 0.01,
+    "birth": 0.02
+  },
+  "territories": {
+    "south_america": 1,
+    "north_america": 1,
+    "europe": 0,
+    "asia": 0,
+    "africa": 0,
+    "oceania": 0,
+    "antarctica": 0
+  }
+}
