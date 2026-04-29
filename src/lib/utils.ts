@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { Locale } from "@/config/i18n";
+import { locales, type Locale } from "@/config/i18n";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -11,7 +11,7 @@ export function getLocaleFromPathname(pathname: string): Locale | null {
   const firstSegment = segments[0];
   
   // Check if first segment is a valid locale
-  if (firstSegment && ['en', 'ar'].includes(firstSegment)) {
+  if (firstSegment && (locales as readonly string[]).includes(firstSegment)) {
     return firstSegment as Locale;
   }
   
@@ -35,7 +35,7 @@ export function localePathname(locale: Locale, pathname: string): string {
   const segments = cleanPath.split('/').filter(Boolean);
   
   // Remove existing locale prefix if present
-  if (segments.length > 0 && ['en', 'ar'].includes(segments[0])) {
+  if (segments.length > 0 && (locales as readonly string[]).includes(segments[0])) {
     segments.shift();
   }
   

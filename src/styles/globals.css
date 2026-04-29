@@ -17,34 +17,34 @@
   --color-dark-a0: #000000;
   --color-light-a0: #ffffff;
 
-  /* Primary Colors */
-  --color-primary-a0: #3c50e0;
-  --color-primary-a10: #5c62e4;
-  --color-primary-a20: #7674e8;
-  --color-primary-a30: #8c86ec;
-  --color-primary-a40: #a19af0;
-  --color-primary-a50: #b5adf3;
-  --color-primary-a60: #c8c1f7;
-  --color-primary-a70: #dbd5fa;
-  --color-primary-a80: #edeafc;
+  /* Primary Colors (base #DB9200) */
+  --color-primary-a0: #db9200;
+  --color-primary-a10: #f2a305;
+  --color-primary-a20: #f5ae1f;
+  --color-primary-a30: #f1b63f;
+  --color-primary-a40: #efbf5e;
+  --color-primary-a50: #eec87b;
+  --color-primary-a60: #efd297;
+  --color-primary-a70: #f1dcb1;
+  --color-primary-a80: #f4e6cb;
   --color-primary-a90: #ffffff;
 
-  /* Surface Colors */
-  --color-surface-a0: #121212;
-  --color-surface-a10: #282828;
-  --color-surface-a20: #3f3f3f;
-  --color-surface-a30: #575757;
-  --color-surface-a40: #717171;
-  --color-surface-a50: #8b8b8b;
-  --color-surface-a60: #a7a7a7;
-  --color-surface-a70: #c4c4c4;
+  /* Surface — warm stone (replaces cold neutral grays) */
+  --color-surface-a0: #151311;
+  --color-surface-a10: #252220;
+  --color-surface-a20: #38342e;
+  --color-surface-a30: #4e4840;
+  --color-surface-a40: #655e55;
+  --color-surface-a50: #7d756b;
+  --color-surface-a60: #968e84;
+  --color-surface-a70: #b0a89e;
 
   /* Tonal Surface Colors */
-  --color-surface-tonal-a0: #1a1824;
-  --color-surface-tonal-a10: #2f2d39;
-  --color-surface-tonal-a20: #46444e;
-  --color-surface-tonal-a30: #5d5b65;
-  --color-surface-tonal-a40: #76747d;
+  --color-surface-tonal-a0: #0F0F0F;
+  --color-surface-tonal-a10: #101010;
+  --color-surface-tonal-a20: #1A1A1A;
+  --color-surface-tonal-a30: #232323;
+  --color-surface-tonal-a40: #333333;
   --color-surface-tonal-a50: #908f96;
   --color-surface-tonal-a60: #aba9af;
   --color-surface-tonal-a70: #c6c5c9;
@@ -121,7 +121,7 @@
 
 :root {
   --radius: 0.625rem;
-  
+
   /* Light Mode Colors */
   --background: #ffffff;
   --foreground: #0f172a;
@@ -129,91 +129,91 @@
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  
+
   /* Primary Colors */
-  --primary: #3c50e0;
+  --primary: #db9200;
   --primary-foreground: #ffffff;
-  
+
   /* Secondary Colors - Light gray background with dark text */
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
-  
+
   /* Muted Colors - Subtle background and readable text */
   --muted: #f8fafc;
   --muted-foreground: #64748b;
-  
+
   /* Accent Colors */
-  --accent: #edeafc;
-  --accent-foreground: #3c50e0;
-  
+  --accent: #fef6e6;
+  --accent-foreground: #db9200;
+
   /* Destructive/Danger Colors */
   --destructive: #9c2121;
   --destructive-foreground: #ffffff;
-  
+
   /* Border & Input - Visible but subtle */
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #3c50e0;
-  
+  --ring: #db9200;
+
   /* Chart Colors */
-  --chart-1: #3c50e0;
+  --chart-1: #db9200;
   --chart-2: #21498a;
   --chart-3: #22946e;
   --chart-4: #ffa70b;
   --chart-5: #9c2121;
-  
+
   /* Sidebar Colors */
   --sidebar: #ffffff;
   --sidebar-foreground: #0f172a;
-  --sidebar-primary: #3c50e0;
+  --sidebar-primary: #db9200;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #edeafc;
-  --sidebar-accent-foreground: #3c50e0;
+  --sidebar-accent: #fef6e6;
+  --sidebar-accent-foreground: #db9200;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: #3c50e0;
+  --sidebar-ring: #db9200;
 }
 
 .dark {
   /* Dark Mode Colors - Using tonal surface colors (#1A1824 and #2F2D39 mix) */
-  --background: var(--color-surface-tonal-a0);
+  --background: var(--color-surface-tonal-0a);
   --foreground: var(--color-light-a0);
   --card: var(--color-surface-tonal-a10);
   --card-foreground: var(--color-light-a0);
   --popover: var(--color-surface-tonal-a10);
   --popover-foreground: var(--color-light-a0);
-  
+
   /* Primary Colors */
   --primary: var(--color-primary-a30);
   --primary-foreground: var(--color-light-a0);
-  
+
   /* Secondary Colors */
   --secondary: var(--color-surface-tonal-a20);
   --secondary-foreground: var(--color-light-a0);
-  
+
   /* Muted Colors */
   --muted: var(--color-surface-tonal-a20);
   --muted-foreground: var(--color-surface-tonal-a60);
-  
+
   /* Accent Colors */
   --accent: var(--color-surface-tonal-a20);
   --accent-foreground: var(--color-light-a0);
-  
+
   /* Destructive/Danger Colors */
   --destructive: var(--color-danger-a10);
   --destructive-foreground: var(--color-light-a0);
-  
+
   /* Border & Input */
   --border: var(--color-surface-tonal-a30);
   --input: var(--color-surface-tonal-a20);
   --ring: var(--color-primary-a30);
-  
+
   /* Chart Colors */
   --chart-1: var(--color-primary-a30);
   --chart-2: var(--color-info-a10);
   --chart-3: var(--color-success-a10);
   --chart-4: var(--color-warning-a10);
   --chart-5: var(--color-danger-a10);
-  
+
   /* Sidebar Colors */
   --sidebar: var(--color-surface-tonal-a0);
   --sidebar-foreground: var(--color-light-a0);
@@ -229,12 +229,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     color-scheme: light;
   }
+
   html.dark {
     color-scheme: dark;
   }
